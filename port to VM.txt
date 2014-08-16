@@ -1,0 +1,21 @@
+DESCRIPTION HOW TO CONFIGURE VM SERIAL PORT
+
+Because the description in the help and manual is very poor and others have had similar problems, I decided to write this guide after lots of trials.
+
+Original it was posted in the Windows Hosts section for XP guest, but has now added Windows 7 settings.
+
+How to add a physical serial port.
+In Guest Settings for Serial Ports set as follow
+Port1: Checked
+Port Number: COM1
+Port Mode: Host Device
+Windows Host:
+Port/File Path: COM1:
+Note the colon in COM1: (not semicolon). I have experienced the guest could become unstable without it. 
+For a host port number higher than 9, the naming \\.\comX where X is the port number, is required. This can also be used for a one digit port number.
+Linux Host:
+Port/File Path: /dev/ttyS1
+For other COM port than 1 replace the digit with port number.
+
+
+Read: $ sudo cat /dev/ttyS1
